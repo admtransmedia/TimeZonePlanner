@@ -11,7 +11,7 @@ import SwiftUI
 struct TimeZonePlannerApp: App {
     var body: some Scene {
         WindowGroup {
-            ListView()
+            ListView().environmentObject(TimeMOdel())
         }
     }
 }
