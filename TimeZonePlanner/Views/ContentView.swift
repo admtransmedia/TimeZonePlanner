@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ListView.swift
 //  TimeZonePlanner
 //
 //  Created by Sergei Kriukov on 01.06.2022.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ListView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ListView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
