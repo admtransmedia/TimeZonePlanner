@@ -6,6 +6,9 @@
 //
 
 import Foundation
-class Zone:Decodable {
-    var timeZone:[String]
+class Zone:Identifiable {
+    var identifier:String?
+    var region:String?
+    var cityOrCountry:String?
+    var gmt:String?
 }

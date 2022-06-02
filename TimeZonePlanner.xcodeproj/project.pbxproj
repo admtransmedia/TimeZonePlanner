@@ -8,23 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		7D1D25FF28473CFF00B8DC86 /* TimeZonePlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D25FE28473CFF00B8DC86 /* TimeZonePlannerApp.swift */; };
-		7D1D260128473CFF00B8DC86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D260028473CFF00B8DC86 /* ContentView.swift */; };
+		7D1D260128473CFF00B8DC86 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D260028473CFF00B8DC86 /* ListView.swift */; };
 		7D1D260328473D0600B8DC86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D1D260228473D0600B8DC86 /* Assets.xcassets */; };
 		7D1D260628473D0600B8DC86 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D1D260528473D0600B8DC86 /* Preview Assets.xcassets */; };
-		7D1D260E28473D7100B8DC86 /* PlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D260D28473D7100B8DC86 /* PlannerView.swift */; };
 		7D1D26112847482200B8DC86 /* TimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D26102847482200B8DC86 /* TimeModel.swift */; };
 		7D1D26142847486F00B8DC86 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D26132847486F00B8DC86 /* Zone.swift */; };
+		7D1D2616284774D300B8DC86 /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D2615284774D300B8DC86 /* Planner.swift */; };
+		7D1D261828478BDB00B8DC86 /* NewPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D261728478BDB00B8DC86 /* NewPlannerView.swift */; };
+		7DA28BED2848C23F0075D714 /* PlannerString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA28BEC2848C23F0075D714 /* PlannerString.swift */; };
+		7DA28BEF2848D2900075D714 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA28BEE2848D2900075D714 /* PickerView.swift */; };
+		7DDF9BEA28488CA3003A505C /* PlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF9BE928488CA3003A505C /* PlannerView.swift */; };
+		7DDF9BEC28488D96003A505C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF9BEB28488D96003A505C /* SettingsView.swift */; };
+		7DDF9BEE28489CEB003A505C /* PlannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF9BED28489CEB003A505C /* PlannerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7D1D25FB28473CFF00B8DC86 /* TimeZonePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeZonePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D1D25FE28473CFF00B8DC86 /* TimeZonePlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZonePlannerApp.swift; sourceTree = "<group>"; };
-		7D1D260028473CFF00B8DC86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7D1D260028473CFF00B8DC86 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; usesTabs = 1; };
 		7D1D260228473D0600B8DC86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D1D260528473D0600B8DC86 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7D1D260D28473D7100B8DC86 /* PlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerView.swift; sourceTree = "<group>"; };
 		7D1D26102847482200B8DC86 /* TimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeModel.swift; sourceTree = "<group>"; };
 		7D1D26132847486F00B8DC86 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		7D1D2615284774D300B8DC86 /* Planner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planner.swift; sourceTree = "<group>"; };
+		7D1D261728478BDB00B8DC86 /* NewPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlannerView.swift; sourceTree = "<group>"; };
+		7DA28BEC2848C23F0075D714 /* PlannerString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerString.swift; sourceTree = "<group>"; };
+		7DA28BEE2848D2900075D714 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		7DDF9BE928488CA3003A505C /* PlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerView.swift; sourceTree = "<group>"; };
+		7DDF9BEB28488D96003A505C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7DDF9BED28489CEB003A505C /* PlannerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +90,11 @@
 		7D1D260C28473D4A00B8DC86 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7D1D260028473CFF00B8DC86 /* ContentView.swift */,
-				7D1D260D28473D7100B8DC86 /* PlannerView.swift */,
+				7D1D260028473CFF00B8DC86 /* ListView.swift */,
+				7DDF9BE928488CA3003A505C /* PlannerView.swift */,
+				7DDF9BEB28488D96003A505C /* SettingsView.swift */,
+				7D1D261728478BDB00B8DC86 /* NewPlannerView.swift */,
+				7DA28BEB2848C2080075D714 /* SimpleViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -88,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				7D1D26102847482200B8DC86 /* TimeModel.swift */,
+				7DDF9BED28489CEB003A505C /* PlannerModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -96,8 +112,18 @@
 			isa = PBXGroup;
 			children = (
 				7D1D26132847486F00B8DC86 /* Zone.swift */,
+				7D1D2615284774D300B8DC86 /* Planner.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7DA28BEB2848C2080075D714 /* SimpleViews */ = {
+			isa = PBXGroup;
+			children = (
+				7DA28BEC2848C23F0075D714 /* PlannerString.swift */,
+				7DA28BEE2848D2900075D714 /* PickerView.swift */,
+			);
+			path = SimpleViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,11 +196,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D1D260128473CFF00B8DC86 /* ContentView.swift in Sources */,
+				7D1D260128473CFF00B8DC86 /* ListView.swift in Sources */,
+				7DDF9BEC28488D96003A505C /* SettingsView.swift in Sources */,
+				7DDF9BEE28489CEB003A505C /* PlannerModel.swift in Sources */,
+				7D1D261828478BDB00B8DC86 /* NewPlannerView.swift in Sources */,
 				7D1D25FF28473CFF00B8DC86 /* TimeZonePlannerApp.swift in Sources */,
+				7DA28BEF2848D2900075D714 /* PickerView.swift in Sources */,
+				7DA28BED2848C23F0075D714 /* PlannerString.swift in Sources */,
+				7D1D2616284774D300B8DC86 /* Planner.swift in Sources */,
 				7D1D26142847486F00B8DC86 /* Zone.swift in Sources */,
 				7D1D26112847482200B8DC86 /* TimeModel.swift in Sources */,
-				7D1D260E28473D7100B8DC86 /* PlannerView.swift in Sources */,
+				7DDF9BEA28488CA3003A505C /* PlannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
