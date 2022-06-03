@@ -6,7 +6,9 @@
 //
 
 import Foundation
+//Planner model. 
 class Planner:Identifiable {
     var name:String = ""
     var cities:[String] = [String]()
+    
 }

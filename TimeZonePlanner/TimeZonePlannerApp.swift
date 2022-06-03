@@ -13,6 +13,7 @@ struct TimeZonePlannerApp: App {
         WindowGroup {
             ListView().environmentObject(TimeModel())
                 .environmentObject(PlannerModel())
+                
         }
     }
 }

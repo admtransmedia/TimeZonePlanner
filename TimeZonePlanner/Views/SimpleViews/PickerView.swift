@@ -14,6 +14,7 @@ struct PickerView: View {
     @State var name = "New planner"
     @State var plannerIndex:Int
     
+    
     var body: some View {
         VStack {
             Picker("Select timezone", selection: $model.selectedTimeZone) {
@@ -27,6 +28,7 @@ struct PickerView: View {
             }
             Button {
                 planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
+                planner.savePlanners()
                 model.newCityView = false
             } label: {
                 Text("Select")

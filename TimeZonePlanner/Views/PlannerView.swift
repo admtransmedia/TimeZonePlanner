@@ -11,13 +11,27 @@ struct PlannerView: View {
     
     @EnvironmentObject var model:TimeModel
     @EnvironmentObject var planner:PlannerModel
-    
+    @AppStorage("colorScheme") var colorScheme = true
     
     @State var plannerIndex:Int
     
     var body: some View {
        
         VStack {
+            
+            Button {
+                planner.savePlanners()
+            } label: {
+                Text("Save")
+            }
+            Button {
+                planner.readPlanners()
+            } label: {
+                Text("read")
+            }
+            
+            
+            
             if planner.planners.count != plannerIndex {
                 TextField("", text: $planner.planners[plannerIndex].name)
                 List {
