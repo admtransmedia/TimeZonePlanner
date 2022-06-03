@@ -33,9 +33,7 @@ struct ListView: View {
 						PlannerView(plannerIndex: index)
 						
 					} label: {
-						//FOR TESTS
-						Text("\(index)")
-						//DELETE
+					
 						PlannerString(index:index)
 						
 							

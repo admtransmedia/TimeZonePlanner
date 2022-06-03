@@ -8,51 +8,31 @@
 import SwiftUI
 
 struct PickerView: View {
-    var newPlanner = Planner()
     @EnvironmentObject var model:TimeModel
     @EnvironmentObject var planner:PlannerModel
-    @State var name = "New planner"
+    //Index of a particular planner
     @State var plannerIndex:Int
-    
-    
     var body: some View {
-        VStack {
+        NavigationView {
             List {
-                                ForEach(model.zones) {
-                                    zone in
-                                    Button {
-                                        model.selectedTimeZone = zone.identifier!
-                                        planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
-                                        planner.savePlanners()
-                                      
-                                        model.newCityView = false
-                                    } label: {
-                                        Text("\(zone.cityOrCountry ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)")
-                                    }
-                                    
-                                }
-                
+                ForEach(model.filteredZones) {
+                    zone in
+                    Button {
+                        model.selectedTimeZone = zone.identifier!
+                        planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
+                        planner.savePlanners()
+                        
+                        model.newCityView = false
+                    } label: {
+                        Text("\(zone.cityOrCountry ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)").foregroundColor(.black)
+                    }
+                }
             }
-//            Picker("Select timezone", selection: $model.selectedTimeZone) {
-//                ForEach(model.zones) {
-//                    zone in
-//
-//                    Text("\(zone.cityOrCountry ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)")
-//                }
-//
-//
-//            }.pickerStyle(.wheel)
-//            Button {
-//                planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
-//                planner.savePlanners()
-//
-//                model.newCityView = false
-//            } label: {
-//                Text("Select")
-//            }
-            
-
-    }
+            //Search bar
+        }.searchable(text: $model.searchText, placement: .navigationBarDrawer(displayMode: .always))
+            .onChange(of: model.searchText) { newValue in
+                model.searchZones()
+            }
     }
 }
 

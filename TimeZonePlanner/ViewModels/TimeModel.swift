@@ -17,6 +17,11 @@ class TimeModel:ObservableObject {
     @Published var newCityView = false
     //Date property for DataPicker
     @Published var date = Date()
+    
+    @Published var searchText = ""
+    @Published var filteredZones:[Zone] = [Zone]()
+    
+    
     //Getting ;ist of actual timezones and other parameters from device when app starts
     init () {
         getZonesList()
@@ -75,4 +80,14 @@ class TimeModel:ObservableObject {
             zones.append(indexZone)
         }
     }
+    
+    func searchZones ()  {
+        if searchText == "" {
+            filteredZones = zones
+        } else {
+        filteredZones = zones.filter{$0.identifier?.contains(searchText) ?? true}
+        }
+       
+    }
+    
 }
