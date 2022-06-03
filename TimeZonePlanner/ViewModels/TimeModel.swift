@@ -17,6 +17,8 @@ class TimeModel:ObservableObject {
     //Array of timezones
     @Published var zones:[Zone] = [Zone]()
     
+    @Published var newCityView = false
+    @Published var date = Date()
     init () {
         getZonesList()
     }
@@ -53,4 +55,14 @@ class TimeModel:ObservableObject {
         
         
     }
+    
+    func getDate() {
+        let currentDate = Date.now
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(identifier: "America/Denver")
+        
+        
+    }
+    
+    
 }

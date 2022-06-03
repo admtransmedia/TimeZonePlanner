@@ -12,6 +12,7 @@ struct PickerView: View {
     @EnvironmentObject var model:TimeModel
     @EnvironmentObject var planner:PlannerModel
     @State var name = "New planner"
+    @State var plannerIndex:Int
     
     var body: some View {
         VStack {
@@ -25,24 +26,12 @@ struct PickerView: View {
                 
             }
             Button {
-                print(model.selectedTimeZone)
+                planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
+                model.newCityView = false
             } label: {
-                Text("Add new City")
+                Text("Select")
             }
-            if planner.planners.count == 0 {
-            Button {
-                print(name)
-                    newPlanner.name = name
-                newPlanner.cities.append(model.selectedTimeZone)
-                planner.planners.append(newPlanner)
-                
-                
-                
-               
-            } label: {
-                Text("Finish")
-            }
-            }
+            
 
     }
     }
