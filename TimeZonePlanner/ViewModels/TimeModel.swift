@@ -23,7 +23,35 @@ class TimeModel:ObservableObject {
     }
     func getZonesList () {
         //getting list of all timezones
-        let zonesList = TimeZone.knownTimeZoneIdentifiers
+        var zonesList = TimeZone.knownTimeZoneIdentifiers
+// Creating new list of all timezones with reversed elements
+        var reversedZonesList:[String] = [String]()
+        var reversedElement = ""
+        for index in zonesList {
+            var element = index.components(separatedBy: "/")
+            element.reverse()
+            switch element.count {
+            case 3:  reversedElement = "\(element[0])/\(element[1])/\(element[2])"
+            case 2:  reversedElement = "\(element[0])/\(element[1])"
+            default :  reversedElement = "\(element[0])"
+            }
+            reversedZonesList.append(reversedElement)
+        }
+        // Sort new list
+        reversedZonesList.sort()
+        //Remove the original list
+        zonesList.removeAll()
+        //Recreate original list after sorting with right identifiers
+        for index in reversedZonesList {
+            var element = index.components(separatedBy: "/")
+            element.reverse()
+            switch element.count {
+            case 3:  reversedElement = "\(element[0])/\(element[1])/\(element[2])"
+            case 2:  reversedElement = "\(element[0])/\(element[1])"
+            default :  reversedElement = "\(element[0])"
+            }
+            zonesList.append(reversedElement)
+        }
         //Loop through each timezone, create new Zone object and append to an array zones
         for index in zonesList {
             //New instance of Zone

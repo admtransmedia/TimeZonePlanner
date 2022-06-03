@@ -17,23 +17,39 @@ struct PickerView: View {
     
     var body: some View {
         VStack {
-            Picker("Select timezone", selection: $model.selectedTimeZone) {
-                ForEach(model.zones) {
-                    zone in
-
-                    Text("\(zone.cityOrCountry ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)")
-                }
+            List {
+                                ForEach(model.zones) {
+                                    zone in
+                                    Button {
+                                        model.selectedTimeZone = zone.identifier!
+                                        planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
+                                        planner.savePlanners()
+                                      
+                                        model.newCityView = false
+                                    } label: {
+                                        Text("\(zone.cityOrCountry ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)")
+                                    }
+                                    
+                                }
                 
-                
-            }.pickerStyle(.wheel)
-            Button {
-                planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
-                planner.savePlanners()
-              
-                model.newCityView = false
-            } label: {
-                Text("Select")
             }
+//            Picker("Select timezone", selection: $model.selectedTimeZone) {
+//                ForEach(model.zones) {
+//                    zone in
+//
+//                    Text("\(zone.cityOrCountry ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)")
+//                }
+//
+//
+//            }.pickerStyle(.wheel)
+//            Button {
+//                planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
+//                planner.savePlanners()
+//
+//                model.newCityView = false
+//            } label: {
+//                Text("Select")
+//            }
             
 
     }
