@@ -7,18 +7,17 @@
 
 import Foundation
 class TimeModel:ObservableObject {
-    @Published var viewSelection:Int?
-    //List of user defined planners
- //   @Published var plannerList:[String] = [String]()
-    //Is new Planner View showed
+    //Is settings View showed
     @Published var settingsViewIsPresented = false
-    //Selected time zone
+    //Selected time zone for picker
     @Published var selectedTimeZone = "GMT"
     //Array of timezones
     @Published var zones:[Zone] = [Zone]()
-    
+    //Is picker for new city showed
     @Published var newCityView = false
+    //Date property for DataPicker
     @Published var date = Date()
+    //Getting ;ist of actual timezones and other parameters from device when app starts
     init () {
         getZonesList()
     }
@@ -45,24 +44,7 @@ class TimeModel:ObservableObject {
             } else  {
                 indexZone.cityOrCountry = splitter[0]
             }
-            
-            
             zones.append(indexZone)
-            
         }
-        
-        
-        
-        
     }
-    
-    func getDate() {
-        let currentDate = Date.now
-        let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(identifier: "America/Denver")
-        
-        
-    }
-    
-    
 }

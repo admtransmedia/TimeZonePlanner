@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListView: View {
-    let defaults = UserDefaults.standard
+
  
     @EnvironmentObject var model:TimeModel
 	@EnvironmentObject var planner:PlannerModel

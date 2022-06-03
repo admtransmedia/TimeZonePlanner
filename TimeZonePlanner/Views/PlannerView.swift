@@ -19,16 +19,7 @@ struct PlannerView: View {
        
         VStack {
             
-            Button {
-                planner.savePlanners()
-            } label: {
-                Text("Save")
-            }
-            Button {
-                planner.readPlanners()
-            } label: {
-                Text("read")
-            }
+        
             
             
             

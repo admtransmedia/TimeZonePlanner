@@ -22,13 +22,14 @@ struct PickerView: View {
                     zone in
 
                     Text("\(zone.cityOrCountry ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)")
-                }.pickerStyle(.wheel)
+                }
                 
                 
-            }
+            }.pickerStyle(.wheel)
             Button {
                 planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
                 planner.savePlanners()
+              
                 model.newCityView = false
             } label: {
                 Text("Select")

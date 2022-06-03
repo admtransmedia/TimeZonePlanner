@@ -10,26 +10,24 @@ import Foundation
 class PlannerModel:ObservableObject {
     //Array of planners
     @Published var planners:[Planner] = [Planner]()
+    //TEST variable for updating views
     @Published var updateView = 0
  
     init() {
        readPlanners()
     }
     
-    
+    //Generating new planner
      func generateNewPlanner () {
         let newPlanner = Planner()
         newPlanner.name = "New Planner"
-    //     newPlanner.cities.append("America/Denver")
          planners.append(newPlanner)
          savePlanners()
     }
-//    func generateNewCity (planIndex:Int) {
-//        planners[planIndex].cities.append("America/Denver")
-//    }
+
     
     
-    
+    //Save planners to Userdefaults
    func savePlanners () {
        
 //       let amount = planners.count
@@ -40,7 +38,7 @@ class PlannerModel:ObservableObject {
 //       }
 //
     }
-    
+    //Read planners from userdefaults
     func readPlanners() {
 //        planners.removeAll()
 //        let amount = UserDefaults.standard.integer(forKey: "Amount")
