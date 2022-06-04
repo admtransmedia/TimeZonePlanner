@@ -16,8 +16,9 @@ struct PlannerView: View {
     @State var removeIndex = -1
     var body: some View {
         ScrollView {
-            if planner.planners.count != plannerIndex {
+            
                 LazyVStack {
+                    if  plannerIndex < planner.planners.count {
                     ForEach (0..<planner.planners[plannerIndex].cities.count, id:\.self) {
                         index in
                       
@@ -76,13 +77,14 @@ struct PlannerView: View {
                            
                     }
                 }
-            }
+                }
+            
         }
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                if planner.planners.count != plannerIndex {
+                if  plannerIndex < planner.planners.count {
                     HStack{
                         TextField("", text: $planner.planners[plannerIndex].name,onCommit: {
                             planner.savePlanners()

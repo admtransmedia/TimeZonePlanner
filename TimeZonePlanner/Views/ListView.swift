@@ -17,6 +17,7 @@ struct ListView: View {
       
             NavigationView {
 				List {
+					
 					NavigationLink {
 						PlannerView(plannerIndex: planner.planners.count ).onAppear {
 						planner.generateNewPlanner()
@@ -24,7 +25,7 @@ struct ListView: View {
 					} label: {
 						Text("Add new planner")
 					}
-					if planner.planners.count != 0 {
+					if planner.planners.count > 0 {
 					ForEach (0..<planner.planners.count, id:\.self) {
                         index in
 					NavigationLink {
@@ -33,10 +34,30 @@ struct ListView: View {
 						
 					} label: {
 					
-						PlannerString(index:index)
+						VStack {
+							Text("\(planner.planners[index].name)")
+							
+							
+
+							
+							
+						}
+						
 
 						
-					}
+					}.swipeActions(edge: .trailing, allowsFullSwipe: false) {
+						Button {
+
+						planner.planners.remove(at: index)
+						
+							   planner.savePlanners()
+
+							
+						   } label: {
+							   Image(systemName: "delete.left")
+						   }
+					
+						}
                     }
 
 					}
@@ -54,6 +75,8 @@ struct ListView: View {
 				}
 				.sheet(isPresented: $model.settingsViewIsPresented ) {
 					SettingsView()}
+				
+
             }
 			
 
