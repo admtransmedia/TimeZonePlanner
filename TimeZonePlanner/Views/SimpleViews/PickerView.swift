@@ -21,7 +21,6 @@ struct PickerView: View {
                         model.selectedTimeZone = zone.identifier!
                         planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
                         planner.savePlanners()
-                        
                         model.newCityView = false
                     } label: {
                         Text("\(zone.cityOrCountry ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)").foregroundColor(.black)

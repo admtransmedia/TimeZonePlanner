@@ -36,7 +36,7 @@ class PlannerModel:ObservableObject {
 //           UserDefaults.standard.set(planners[index].name, forKey: "\(index)")
 //           UserDefaults.standard.set(planners[index].cities, forKey: "\(index)cities")
 //       }
-//
+
     }
     //Read planners from userdefaults
     func readPlanners() {

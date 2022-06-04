@@ -17,9 +17,11 @@ class TimeModel:ObservableObject {
     @Published var newCityView = false
     //Date property for DataPicker
     @Published var date = Date()
-    
+    @Published var updateView = 0
     @Published var searchText = ""
     @Published var filteredZones:[Zone] = [Zone]()
+    @Published var startWork = Date(timeIntervalSinceReferenceDate: 0)
+    @Published var finishWork = Date(timeIntervalSinceReferenceDate: 36000)
     
     
     //Getting ;ist of actual timezones and other parameters from device when app starts
@@ -27,6 +29,11 @@ class TimeModel:ObservableObject {
         getZonesList()
     }
     func getZonesList () {
+        
+    
+        
+        
+        
         //getting list of all timezones
         var zonesList = TimeZone.knownTimeZoneIdentifiers
 // Creating new list of all timezones with reversed elements

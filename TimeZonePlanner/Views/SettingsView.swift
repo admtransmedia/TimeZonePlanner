@@ -20,6 +20,8 @@ struct SettingsView: View {
                 }
                 
             }
+            DatePicker("Start worktime", selection: $model.startWork, displayedComponents: .hourAndMinute)
+            DatePicker("Finish worktime", selection: $model.finishWork, displayedComponents: .hourAndMinute)
             
             Button {
                 model.settingsViewIsPresented = false

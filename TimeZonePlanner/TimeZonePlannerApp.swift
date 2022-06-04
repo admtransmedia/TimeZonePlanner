@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-@main
-struct TimeZonePlannerApp: App {
+@main struct TimeZonePlannerApp: App {
     var body: some Scene {
         WindowGroup {
             ListView().environmentObject(TimeModel())

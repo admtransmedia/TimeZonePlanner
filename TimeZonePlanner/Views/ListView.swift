@@ -14,8 +14,7 @@ struct ListView: View {
 	@EnvironmentObject var planner:PlannerModel
     
     var body: some View {
-        VStack{
-            
+      
             NavigationView {
 				List {
 					NavigationLink {
@@ -35,38 +34,29 @@ struct ListView: View {
 					} label: {
 					
 						PlannerString(index:index)
-						
-							
-						
+
 						
 					}
-					
                     }
-                    
 
 					}
 				}
-              
+				.navigationTitle("Menu")
+				.toolbar {
+					ToolbarItem(placement: .navigationBarTrailing) {
+						Button {
+							model.settingsViewIsPresented  = true
+						} label: {
+							Image(systemName: "gear")
+							Text("Settings")
+						}
+					}
+				}
+				.sheet(isPresented: $model.settingsViewIsPresented ) {
+					SettingsView()}
             }
 			
-            .navigationTitle("Your planners")
-            .toolbar {
-                
-                ToolbarItem(placement: .bottomBar) {
-                    Button {
-                        model.settingsViewIsPresented  = true
-                    } label: {
-                        Image(systemName: "gear")
-                        Text("Settings")
-                    }
 
-                }
-            }
-            .sheet(isPresented: $model.settingsViewIsPresented ) {
-                SettingsView()
-            }
-            
-        }
     }
 }
 
