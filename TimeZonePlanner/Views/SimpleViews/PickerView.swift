@@ -18,12 +18,16 @@ struct PickerView: View {
                 ForEach(model.filteredZones) {
                     zone in
                     Button {
-                        model.selectedTimeZone = zone.identifier!
-                        planner.planners[plannerIndex].cities.append(model.selectedTimeZone)
+                        
+                        let selectedTimeZone = City()
+                        selectedTimeZone.cityId = zone.identifier!
+                        selectedTimeZone.cityName = zone.cityOrCountry!
+                       
+                        planner.planners[plannerIndex].cities.append(selectedTimeZone)
                         planner.savePlanners()
                         model.newCityView = false
                     } label: {
-                        Text("\(zone.cityOrCountry ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)").foregroundColor(.black)
+                        Text("\(zone.cityOrCountry?.replacingOccurrences(of: "_", with: " ") ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)").foregroundColor(.black)
                     }
                 }
             }

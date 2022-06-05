@@ -10,23 +10,28 @@ class TimeModel:ObservableObject {
     //Is settings View showed
     @Published var settingsViewIsPresented = false
     //Selected time zone for picker
-    @Published var selectedTimeZone = "GMT"
+    //@Published var selectedTimeZone = City()
     //Array of timezones
     @Published var zones:[Zone] = [Zone]()
     //Is picker for new city showed
     @Published var newCityView = false
+    //Is picker for new custom city showed
+    @Published var newCustom = false
     //Date property for DataPicker
     @Published var date = Date()
     @Published var updateView = 0
     @Published var searchText = ""
     @Published var filteredZones:[Zone] = [Zone]()
+    
     @Published var startWork = Date(timeIntervalSinceReferenceDate: 0)
     @Published var finishWork = Date(timeIntervalSinceReferenceDate: 36000)
+    @Published var userZonez:[Zone] = [Zone]()
     
     
     //Getting ;ist of actual timezones and other parameters from device when app starts
     init () {
         getZonesList()
+        userDefinedZones()
     }
     func getZonesList () {
         
@@ -36,6 +41,9 @@ class TimeModel:ObservableObject {
         
         //getting list of all timezones
         var zonesList = TimeZone.knownTimeZoneIdentifiers
+
+        
+        
 // Creating new list of all timezones with reversed elements
         var reversedZonesList:[String] = [String]()
         var reversedElement = ""
@@ -85,16 +93,55 @@ class TimeModel:ObservableObject {
                 indexZone.cityOrCountry = splitter[0]
             }
             zones.append(indexZone)
+         
+            
         }
+        //Adding Nur-Sultan city
+        
+        let nurSultan = Zone()
+        nurSultan.identifier = "Asia/Almaty"
+        nurSultan.gmt = "GMT+6"
+        nurSultan.region = "Asia"
+        nurSultan.cityOrCountry = "Nur_Sultan"
+        zones.append(nurSultan)
     }
     
     func searchZones ()  {
         if searchText == "" {
             filteredZones = zones
         } else {
-        filteredZones = zones.filter{$0.identifier?.contains(searchText) ?? true}
+            filteredZones = zones.filter{$0.identifier?.localizedCaseInsensitiveContains(searchText) ?? true || $0.gmt?.localizedCaseInsensitiveContains(searchText) ?? true || $0.cityOrCountry?.localizedCaseInsensitiveContains(searchText) ?? true}
         }
        
     }
+    
+    
+    
+    
+    //User defined timezone
+    func userDefinedZones () {
+        let path = Bundle.main.path(forResource: "manualzones", ofType: "json")
+        if path != nil {
+            let url = URL(fileURLWithPath: path!)
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                do {
+                    let rezult = try decoder.decode([Zone].self, from: data)
+                    
+                    userZonez = rezult
+                } catch {
+                    print("Error with JSON")
+                }
+    
+            } catch {
+                print("Error with URL")
+            }
+     
+        }
+  
+    }
+    
+   
     
 }

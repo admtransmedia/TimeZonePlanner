@@ -15,6 +15,8 @@
 		7D1D26142847486F00B8DC86 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D26132847486F00B8DC86 /* Zone.swift */; };
 		7D1D2616284774D300B8DC86 /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D2615284774D300B8DC86 /* Planner.swift */; };
 		7D1D261828478BDB00B8DC86 /* MainVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D261728478BDB00B8DC86 /* MainVIew.swift */; };
+		7D35B6F3284C8EA9007190F1 /* manualzones.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D35B6F2284C8EA9007190F1 /* manualzones.json */; };
+		7D35B6F5284CCFF4007190F1 /* CustomZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35B6F4284CCFF4007190F1 /* CustomZone.swift */; };
 		7DA28BED2848C23F0075D714 /* PlannerString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA28BEC2848C23F0075D714 /* PlannerString.swift */; };
 		7DA28BEF2848D2900075D714 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA28BEE2848D2900075D714 /* PickerView.swift */; };
 		7DDF9BEA28488CA3003A505C /* PlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF9BE928488CA3003A505C /* PlannerView.swift */; };
@@ -32,6 +34,8 @@
 		7D1D26132847486F00B8DC86 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		7D1D2615284774D300B8DC86 /* Planner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planner.swift; sourceTree = "<group>"; };
 		7D1D261728478BDB00B8DC86 /* MainVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVIew.swift; sourceTree = "<group>"; };
+		7D35B6F2284C8EA9007190F1 /* manualzones.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manualzones.json; sourceTree = "<group>"; };
+		7D35B6F4284CCFF4007190F1 /* CustomZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomZone.swift; sourceTree = "<group>"; };
 		7DA28BEC2848C23F0075D714 /* PlannerString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerString.swift; sourceTree = "<group>"; };
 		7DA28BEE2848D2900075D714 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		7DDF9BE928488CA3003A505C /* PlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlannerView.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 				7D1D260C28473D4A00B8DC86 /* Views */,
 				7D1D260F2847480900B8DC86 /* ViewModels */,
 				7D1D26122847483D00B8DC86 /* Models */,
+				7D35B6F1284C8E54007190F1 /* Data */,
 				7D1D260228473D0600B8DC86 /* Assets.xcassets */,
 				7D1D260428473D0600B8DC86 /* Preview Content */,
 			);
@@ -117,11 +122,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7D35B6F1284C8E54007190F1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7D35B6F2284C8EA9007190F1 /* manualzones.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		7DA28BEB2848C2080075D714 /* SimpleViews */ = {
 			isa = PBXGroup;
 			children = (
 				7DA28BEC2848C23F0075D714 /* PlannerString.swift */,
 				7DA28BEE2848D2900075D714 /* PickerView.swift */,
+				7D35B6F4284CCFF4007190F1 /* CustomZone.swift */,
 			);
 			path = SimpleViews;
 			sourceTree = "<group>";
@@ -186,6 +200,7 @@
 			files = (
 				7D1D260628473D0600B8DC86 /* Preview Assets.xcassets in Resources */,
 				7D1D260328473D0600B8DC86 /* Assets.xcassets in Resources */,
+				7D35B6F3284C8EA9007190F1 /* manualzones.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +221,7 @@
 				7D1D2616284774D300B8DC86 /* Planner.swift in Sources */,
 				7D1D26142847486F00B8DC86 /* Zone.swift in Sources */,
 				7D1D26112847482200B8DC86 /* TimeModel.swift in Sources */,
+				7D35B6F5284CCFF4007190F1 /* CustomZone.swift in Sources */,
 				7DDF9BEA28488CA3003A505C /* PlannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

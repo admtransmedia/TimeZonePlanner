@@ -16,15 +16,9 @@ struct ListView: View {
     var body: some View {
       
             NavigationView {
+				
+				
 				List {
-					
-					NavigationLink {
-						PlannerView(plannerIndex: planner.planners.count ).onAppear {
-						planner.generateNewPlanner()
-						}
-					} label: {
-						Text("Add new planner")
-					}
 					if planner.planners.count > 0 {
 					ForEach (0..<planner.planners.count, id:\.self) {
                         index in
@@ -61,17 +55,34 @@ struct ListView: View {
                     }
 
 					}
+					
 				}
-				.navigationTitle("Menu")
+				.navigationBarTitleDisplayMode(.inline)
 				.toolbar {
-					ToolbarItem(placement: .navigationBarTrailing) {
+					ToolbarItem(placement: .bottomBar) {
 						Button {
 							model.settingsViewIsPresented  = true
 						} label: {
 							Image(systemName: "gear")
-							Text("Settings")
+							
 						}
 					}
+					ToolbarItem(placement: .bottomBar) {
+						
+							NavigationLink {
+								PlannerView(plannerIndex: planner.planners.count ).onAppear {
+								planner.generateNewPlanner()
+								}
+							
+						} label: {
+							Image(systemName: "plus")
+							
+						}
+					}
+					ToolbarItem(placement: .principal) {
+						Text("Menu").font(.title)
+					}
+					
 				}
 				.sheet(isPresented: $model.settingsViewIsPresented ) {
 					SettingsView()}

@@ -16,39 +16,40 @@ struct PlannerView: View {
     @State var removeIndex = -1
     var body: some View {
         ScrollView {
-            
-                LazyVStack {
                     if  plannerIndex < planner.planners.count {
                     ForEach (0..<planner.planners[plannerIndex].cities.count, id:\.self) {
                         index in
-                      
+                     
+                           
                         ZStack (alignment: .leading) {
-                            
+
                             Rectangle()
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                                 .shadow(radius: 5)
                                 .frame(height: 90)
-                            
+
                             HStack (spacing: 30) {
-                                if  ((Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index])!, from: model.date).hour! * 60) +
-                                        Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index])!, from: model.date).minute!)
+                                if  ((Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!, from: model.date).hour! * 60) +
+                                     Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!, from: model.date).minute!)
                                     >= ((Calendar.current.component(.hour, from: model.startWork) * 60) + Calendar.current.component(.minute, from: model.startWork))
-                                    && ((Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index])!, from: model.date).hour! * 60) +
-                                        Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index])!, from: model.date).minute!)
+                                        && ((Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!, from: model.date).hour! * 60) +
+                                            Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!, from: model.date).minute!)
                                     <= ((Calendar.current.component(.hour, from: model.finishWork) * 60) + Calendar.current.component(.minute, from: model.finishWork))
                                 {
                                     Image(systemName: "sun.max.fill")
                                 } else {
                                     Image(systemName: "moon.stars")
                                 }
-                                
+
                                 VStack {
                                     HStack{
-                                        Text("\(planner.planners[plannerIndex].cities[index].components(separatedBy: "/").last!)")
-                                Text("\(TimeZone(identifier: planner.planners[plannerIndex].cities[index])?.abbreviation() ?? "")")
+                                        Text("\(planner.planners[plannerIndex].cities[index].cityName.components(separatedBy: "/").last!.replacingOccurrences(of: "_", with: "-"))")
+                                        Text("\(TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)?.abbreviation() ?? "")")
                                     }
-                                    DatePicker("", selection: $model.date).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index])!)
+                                    DatePicker("", selection: $model.date).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
+
+
                                 }
                                 Button {
                                     planner.planners[plannerIndex].cities.remove(at: index)
@@ -60,13 +61,14 @@ struct PlannerView: View {
                                     Image(systemName: "delete.left")
                                 }
 
-                                
+
                             }
                             .padding()
-                          
+
                         }
                             .padding(.bottom, 5)
                             .padding(.horizontal)
+                         
                             
                         
                         
@@ -75,10 +77,25 @@ struct PlannerView: View {
                         
                         
                            
-                    }
+                    
                 }
                 }
+            HStack{
+                                Button {
+                                    model.filteredZones = model.zones
+                                    model.newCityView = true
+                                } label: {
+                                    Text("Add new city")
+                                }
             
+            
+            Button {
+               
+                model.newCustom = true
+            } label: {
+                Text("Add custom")
+            }
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
         .padding(.horizontal)
@@ -105,17 +122,22 @@ struct PlannerView: View {
                     }
                 }
             }
-            ToolbarItem(placement: .bottomBar) {
-                Button {
-                    model.filteredZones = model.zones
-                    model.newCityView = true
-                } label: {
-                    Text("Add new city")
-                }
-                .sheet(isPresented: $model.newCityView ) {
-                    PickerView(plannerIndex: plannerIndex)
-                }
-            }
+//            ToolbarItem(placement: .bottomBar) {
+//                Button {
+//                    model.filteredZones = model.zones
+//                    model.newCityView = true
+//                } label: {
+//                    Text("Add new city")
+//                }
+//
+//            }
+            
+        }
+        .sheet(isPresented: $model.newCityView ) {
+            PickerView(plannerIndex: plannerIndex)
+        }
+        .sheet(isPresented: $model.newCustom) {
+            CustomZone(plannerIndex: plannerIndex)
         }
     }
 }

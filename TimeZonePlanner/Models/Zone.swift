@@ -7,7 +7,7 @@
 
 import Foundation
 //TimeZone model
-class Zone:Identifiable {
+class Zone:Identifiable, Decodable {
     var identifier:String?
     var region:String?
     var cityOrCountry:String?

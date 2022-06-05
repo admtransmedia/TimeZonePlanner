@@ -30,23 +30,44 @@ class PlannerModel:ObservableObject {
     //Save planners to Userdefaults
    func savePlanners () {
        
-//       let amount = planners.count
-//       UserDefaults.standard.set(amount, forKey: "Amount")
-//       for index in 0..<amount {
-//           UserDefaults.standard.set(planners[index].name, forKey: "\(index)")
-//           UserDefaults.standard.set(planners[index].cities, forKey: "\(index)cities")
-//       }
+       let amount = planners.count
+       UserDefaults.standard.set(amount, forKey: "Amount")
+       for index in 0..<amount {
+           UserDefaults.standard.set(planners[index].name, forKey: "\(index)")
+           let amountCity = planners[index].cities.count
+           UserDefaults.standard.set(amountCity, forKey: "\(index)amountCity")
+           for indexCity in 0..<amountCity {
+               UserDefaults.standard.set(planners[index].cities[indexCity].cityId, forKey: "\(index)cityId\(indexCity)")
+               UserDefaults.standard.set(planners[index].cities[indexCity].cityName, forKey: "\(index)cityName\(indexCity)")
+               
+           }
+           
+           
+       }
 
     }
     //Read planners from userdefaults
     func readPlanners() {
-//        planners.removeAll()
-//        let amount = UserDefaults.standard.integer(forKey: "Amount")
-//        for index in 0..<amount {
-//            let storedPlanner = Planner()
-//            storedPlanner.name = UserDefaults.standard.string(forKey: "\(index)")!
-//            storedPlanner.cities = UserDefaults.standard.array(forKey: "\(index)cities") as? [String] ?? [String]()
-//            planners.append(storedPlanner)
-//        }
+        planners.removeAll()
+        let amount = UserDefaults.standard.integer(forKey: "Amount")
+        for index in 0..<amount {
+            let storedPlanner = Planner()
+            storedPlanner.name = UserDefaults.standard.string(forKey: "\(index)")!
+            let amountCity = UserDefaults.standard.integer(forKey: "\(index)amountCity")
+            for indexCity in 0..<amountCity {
+                let storedCity = City()
+                storedCity.cityId = UserDefaults.standard.string(forKey: "\(index)cityId\(indexCity)")!
+                storedCity.cityName = UserDefaults.standard.string(forKey: "\(index)cityName\(indexCity)")!
+                storedPlanner.cities.append(storedCity)
+            }
+            
+            planners.append(storedPlanner)
+        }
+    }
+    
+    func deleteCity (plannerIndex: Int, index:Int) {
+        planners[plannerIndex].cities.remove(at: index)
+        savePlanners()
+        updateView += 1
     }
 }
