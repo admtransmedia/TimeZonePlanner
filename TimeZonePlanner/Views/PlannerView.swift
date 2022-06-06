@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import EventKitUI
+import EventKit
 
 struct PlannerView: View {
     @EnvironmentObject var model:TimeModel
@@ -14,6 +16,12 @@ struct PlannerView: View {
     @State var plannerIndex:Int
     @State var nameFieldDisables = true
     @State var removeIndex = -1
+    @State var calendPrez = false
+//    var request = Permissions()
+ //   @State var event = EKEvent()
+  //  @StateObject var store = EventKitManager()
+   // @State var eventStore = EKEventStore()
+    
     var body: some View {
         ScrollView {
                     if  plannerIndex < planner.planners.count {
@@ -119,6 +127,16 @@ struct PlannerView: View {
                                 .frame(width: 20, height: 20)
                                 .scaledToFit()
                         }
+                        Button {
+                            //event.startDate = model.date
+                            calendPrez = true
+//                            store.insertEvent()
+//                            store.eventVC.present(store.eventVC, animated: true)
+                          //  present(store.eventVC, animated: true)
+                        } label: {
+                            Text("12")
+                        }
+
                     }
                 }
             }
@@ -138,6 +156,9 @@ struct PlannerView: View {
         }
         .sheet(isPresented: $model.newCustom) {
             CustomZone(plannerIndex: plannerIndex)
+        }
+        .sheet(isPresented: $calendPrez) {
+            AddCalendarView()
         }
     }
 }

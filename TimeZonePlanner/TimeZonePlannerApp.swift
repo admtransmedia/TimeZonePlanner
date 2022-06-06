@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main struct TimeZonePlannerApp: App {
+    private var request = Permissions()
     var body: some Scene {
         WindowGroup {
             ListView().environmentObject(TimeModel())
