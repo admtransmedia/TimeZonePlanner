@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D0FAE1E284DF17E0082A777 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0FAE1D284DF17E0082A777 /* Notifications.swift */; };
 		7D0FAE20284DFC140082A777 /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0FAE1F284DFC140082A777 /* Permissions.swift */; };
+		7D0FAE22284E10B60082A777 /* ZonesMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0FAE21284E10B60082A777 /* ZonesMap.swift */; };
 		7D1D25FF28473CFF00B8DC86 /* TimeZonePlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D25FE28473CFF00B8DC86 /* TimeZonePlannerApp.swift */; };
 		7D1D260128473CFF00B8DC86 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1D260028473CFF00B8DC86 /* ListView.swift */; };
 		7D1D260328473D0600B8DC86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D1D260228473D0600B8DC86 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		7D0FAE1D284DF17E0082A777 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		7D0FAE1F284DFC140082A777 /* Permissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		7D0FAE21284E10B60082A777 /* ZonesMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonesMap.swift; sourceTree = "<group>"; };
 		7D1D25FB28473CFF00B8DC86 /* TimeZonePlanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeZonePlanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D1D25FE28473CFF00B8DC86 /* TimeZonePlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZonePlannerApp.swift; sourceTree = "<group>"; };
 		7D1D260028473CFF00B8DC86 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; usesTabs = 1; };
@@ -153,6 +155,7 @@
 				7DA28BEE2848D2900075D714 /* PickerView.swift */,
 				7D35B6F4284CCFF4007190F1 /* CustomZone.swift */,
 				7D35B6F7284CDA38007190F1 /* AddCalendarView.swift */,
+				7D0FAE21284E10B60082A777 /* ZonesMap.swift */,
 			);
 			path = SimpleViews;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				7D1D261828478BDB00B8DC86 /* MainVIew.swift in Sources */,
 				7D1D25FF28473CFF00B8DC86 /* TimeZonePlannerApp.swift in Sources */,
 				7DA28BEF2848D2900075D714 /* PickerView.swift in Sources */,
+				7D0FAE22284E10B60082A777 /* ZonesMap.swift in Sources */,
 				7DA28BED2848C23F0075D714 /* PlannerString.swift in Sources */,
 				7D35B6F8284CDA38007190F1 /* AddCalendarView.swift in Sources */,
 				7D0FAE1E284DF17E0082A777 /* Notifications.swift in Sources */,

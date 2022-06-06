@@ -79,6 +79,16 @@ struct ListView: View {
 							
 						}
 					}
+					ToolbarItem(placement: .bottomBar) {
+						
+							NavigationLink {
+								ZonesMap()
+							
+						} label: {
+							Image(systemName: "map")
+							
+						}
+					}
 					ToolbarItem(placement: .principal) {
 						Text("Menu").font(.title)
 					}
