@@ -18,7 +18,6 @@ class Permissions {
         eventStore.requestAccess(to: .event) { (granted, error) in
             if granted {
                 DispatchQueue.main.async {
-                   
                 }
             }
         }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main struct TimeZonePlannerApp: App {
+    //Request permissions for Calendar
     private var request = Permissions()
     var body: some Scene {
         WindowGroup {

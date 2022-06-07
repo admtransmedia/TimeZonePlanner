@@ -12,6 +12,7 @@ class Planner:Identifiable {
     var cities:[City] = [City]()
     
 }
+//City model
 class City:Identifiable {
     var cityName:String = ""
     var cityId:String = ""

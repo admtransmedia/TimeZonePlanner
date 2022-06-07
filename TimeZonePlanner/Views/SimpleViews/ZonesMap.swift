@@ -6,20 +6,12 @@
 //
 
 import SwiftUI
-
+//Scrollable map of all time zones
 struct ZonesMap: View {
     var body: some View {
         ScrollView([.horizontal, .vertical]) {
             Image("zonesmap")
-                
         }
         .navigationTitle("World time zones")
-        
-    }
-}
-
-struct ZonesMap_Previews: PreviewProvider {
-    static var previews: some View {
-        ZonesMap()
     }
 }
