@@ -40,7 +40,7 @@ struct ListView: View {
 
 						
 					}.swipeActions(edge: .trailing, allowsFullSwipe: false) {
-						Button {
+						Button (role: .destructive) {
 
 						planner.planners.remove(at: index)
 						
@@ -67,7 +67,7 @@ struct ListView: View {
 							
 						}
 					}
-					ToolbarItem(placement: .bottomBar) {
+					ToolbarItem(placement: .navigationBarTrailing) {
 						
 							NavigationLink {
 								PlannerView(plannerIndex: planner.planners.count ).onAppear {
@@ -90,7 +90,9 @@ struct ListView: View {
 						}
 					}
 					ToolbarItem(placement: .principal) {
-						Text("Menu").font(.title)
+						Text("My Lists")
+							.font(.title)
+							.bold()
 					}
 					
 				}

@@ -14,6 +14,7 @@ struct ZonesMap: View {
                 
         }
         .navigationTitle("World time zones")
+        
     }
 }
 

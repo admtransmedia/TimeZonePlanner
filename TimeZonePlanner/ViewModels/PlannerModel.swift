@@ -20,7 +20,7 @@ class PlannerModel:ObservableObject {
     //Generating new planner
      func generateNewPlanner () {
         let newPlanner = Planner()
-        newPlanner.name = "New Planner"
+        newPlanner.name = "New List"
          planners.append(newPlanner)
          savePlanners()
     }
