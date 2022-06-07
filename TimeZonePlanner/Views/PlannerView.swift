@@ -40,8 +40,9 @@ struct PlannerView: View {
 
 
                                 VStack (alignment: .leading){
-                                    Text("\(planner.planners[plannerIndex].cities[index].cityName.components(separatedBy: "/").last!.replacingOccurrences(of: "_", with: "-"))")
-                                        .font(.title.bold())
+                                    Text("\(planner.planners[plannerIndex].cities[index].cityName.components(separatedBy: "/").last!.replacingOccurrences(of: "_", with: " "))")
+                                        .font(.system(size: 30))
+                                        .bold()
                                     HStack {
                                         if  ((Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!, from: model.date).hour! * 60) +
                                              Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!, from: model.date).minute!)
@@ -55,12 +56,13 @@ struct PlannerView: View {
                                             Image(systemName: "moon.stars")
                                         }
                                         Text("\(TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)?.abbreviation() ?? "")")
-                                            .font(.title)
+                                            .font(.headline)
                                     }
              
                            
                                     
                                 }
+                                .padding(.leading, 5)
                                
                                 VStack (alignment: .leading, spacing: 30){
                                     DatePicker("", selection: $model.date, displayedComponents: .hourAndMinute).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
@@ -128,8 +130,10 @@ struct PlannerView: View {
                                   Image(systemName: "delete.left")
                                       
                               }
+                              
                              
                               }
+                          
                           
                             
                          
@@ -197,6 +201,11 @@ struct PlannerView: View {
                                 .scaledToFit()
                         }
                         Button {
+                            model.date = Date.now
+                        } label: {
+                            Image(systemName: "clock.arrow.2.circlepath")
+                        }
+                        Button {
                             model.filteredZones = model.zones
                             model.newCityView = true
                         } label: {
@@ -207,6 +216,7 @@ struct PlannerView: View {
                     }
                 }
             }
+            
 
             
         }

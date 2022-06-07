@@ -8,28 +8,31 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage("colorScheme") var colorScheme = true
     @EnvironmentObject var model:TimeModel
     var body: some View {
         VStack {
-            Toggle(isOn: $colorScheme) {
-                if colorScheme == true {
-                    Text("Switch to dark mode")
-                } else {
-                    Text("Switch to light mode")
-                }
-                
-            }
+          
             DatePicker("Start worktime", selection: $model.startWork, displayedComponents: .hourAndMinute)
+                .padding()
             DatePicker("Finish worktime", selection: $model.finishWork, displayedComponents: .hourAndMinute)
+                .padding()
             
             Button {
                 model.settingsViewIsPresented = false
             } label: {
                 Text("Back")
             }
+            .font(.headline)
+            .padding()
+            .overlay(
+                   RoundedRectangle(cornerRadius: 16)
+                       .stroke( lineWidth: 1)
+               )
+        
+
 
         }
+        
     }
 }
 

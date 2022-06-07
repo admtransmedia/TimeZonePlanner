@@ -80,10 +80,10 @@ struct PickerView: View {
                             .padding()
                             .overlay(
                                    RoundedRectangle(cornerRadius: 16)
-                                       .stroke(.black, lineWidth: 1)
+                                       .stroke( lineWidth: 1)
                                )
                         
-                        .foregroundColor(.black)
+                      //  .foregroundColor(.black)
                         
                     }
 
