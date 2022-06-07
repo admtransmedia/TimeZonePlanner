@@ -152,22 +152,12 @@ struct PlannerView: View {
             
         }
         .listStyle(PlainListStyle())
-            HStack{
-                                Button {
-                                    model.filteredZones = model.zones
-                                    model.newCityView = true
-                                } label: {
-                                    Text("Add new city")
-                                }
+            
+                              
             
             
-            Button {
-               
-                model.newCustom = true
-            } label: {
-                Text("Add custom")
-            }
-            }
+            
+            
         }
         .navigationBarTitleDisplayMode(.inline)
        // .padding(.horizontal)
@@ -205,6 +195,12 @@ struct PlannerView: View {
                                 .resizable()
                                 .frame(width: 20, height: 20)
                                 .scaledToFit()
+                        }
+                        Button {
+                            model.filteredZones = model.zones
+                            model.newCityView = true
+                        } label: {
+                            Image(systemName: "plus")
                         }
                         
 
