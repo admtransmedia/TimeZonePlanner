@@ -60,7 +60,7 @@ struct PlannerView: View {
                                     DatePicker("", selection: $model.date, displayedComponents: .hourAndMinute).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
                                         .transformEffect(.init(scaleX: 1.7, y: 1.7))
                                         .fixedSize().frame(maxWidth: .infinity, alignment: .center)
-                                    DatePicker("      ", selection: $model.date, displayedComponents: .date).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
+                                    DatePicker("            ", selection: $model.date, displayedComponents: .date).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
                                         .transformEffect(.init(scaleX: 1.1, y: 1.1))
                                         .fixedSize().frame(maxWidth: .infinity, alignment: .center)
                                 }

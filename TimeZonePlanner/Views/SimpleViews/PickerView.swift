@@ -34,7 +34,7 @@ struct PickerView: View {
                             //Disable Picker view
                             model.newCityView = false
                         } label: {
-                            Text("\(zone.cityOrCountry?.replacingOccurrences(of: "_", with: " ") ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)").foregroundColor(.black)
+                            Text("\(zone.cityOrCountry?.replacingOccurrences(of: "_", with: " ") ?? "") , \(zone.region ?? "") , \(zone.gmt ?? "")").tag("\(zone.identifier!)").foregroundColor(.white)
                         }
                     }
                 }
@@ -43,6 +43,7 @@ struct PickerView: View {
                 .onChange(of: model.searchText) { newValue in
                     model.searchZones()
                 }
+                .navigationViewStyle(.stack)
                 .tabItem {
                     Label("Database", systemImage: "globe")
                 }
@@ -82,6 +83,7 @@ struct PickerView: View {
                     }
                 }
             }
+            .navigationViewStyle(.stack)
             .tabItem {
                 Label("Manual", systemImage: "keyboard")
             }

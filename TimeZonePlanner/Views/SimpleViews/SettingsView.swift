@@ -12,10 +12,12 @@ struct SettingsView: View {
     @EnvironmentObject var model:TimeModel
     var body: some View {
         VStack {
-            DatePicker("Start worktime", selection: $model.startWork, displayedComponents: .hourAndMinute)
-                .padding()
-            DatePicker("Finish worktime", selection: $model.finishWork, displayedComponents: .hourAndMinute)
-                .padding()
+            Text("Working day")
+                .font(.headline)
+            DatePicker("Start time", selection: $model.startWork, displayedComponents: .hourAndMinute)
+                .padding(.horizontal, 50)
+            DatePicker("End time", selection: $model.finishWork, displayedComponents: .hourAndMinute)
+                .padding(.horizontal, 50)
             Button {
                 //Save choosen time and close settings
                 model.saveWorktime()
@@ -27,7 +29,7 @@ struct SettingsView: View {
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke( lineWidth: 1)
+                    .stroke(.blue, lineWidth: 1)
             )
         }
     }

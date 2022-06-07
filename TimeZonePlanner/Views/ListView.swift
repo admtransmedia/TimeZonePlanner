@@ -75,5 +75,6 @@ struct ListView: View {
 			.sheet(isPresented: $model.settingsViewIsPresented ) {
 				SettingsView()}
 		}
+		.navigationViewStyle(.stack)
 	}
 }
