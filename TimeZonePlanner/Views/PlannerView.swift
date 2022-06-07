@@ -34,8 +34,11 @@ struct PlannerView: View {
                                 VStack (alignment: .leading){
                                     //City name
                                     Text("\(planner.planners[plannerIndex].cities[index].cityName.components(separatedBy: "/").last!.replacingOccurrences(of: "_", with: " "))")
-                                        .font(.system(size: 30))
+                                        .font(.system(size: 25))
                                         .bold()
+                                        .lineLimit(2)
+                                        .padding(.top, 10)
+                                    Spacer()
                                     HStack {
                                         //Check if there is worktime
                                         if  ((Calendar.current.dateComponents(in: TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!, from: model.date).hour! * 60) +
@@ -53,25 +56,31 @@ struct PlannerView: View {
                                         Text("\(TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)?.abbreviation() ?? "")")
                                             .font(.headline)
                                     }
+                                    .padding(.bottom, 10)
                                 }
                                 .padding(.leading, 5)
+                                .frame(width:135, alignment: .topLeading)
                                 //Date ant time pickers
                                 VStack (alignment: .leading, spacing: 30){
                                     DatePicker("", selection: $model.date, displayedComponents: .hourAndMinute).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
                                         .transformEffect(.init(scaleX: 1.7, y: 1.7))
                                         .fixedSize().frame(maxWidth: .infinity, alignment: .center)
-                                    DatePicker("            ", selection: $model.date, displayedComponents: .date).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
+                                    DatePicker("        ", selection: $model.date, displayedComponents: .date).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
                                         .transformEffect(.init(scaleX: 1.1, y: 1.1))
                                         .fixedSize().frame(maxWidth: .infinity, alignment: .center)
                                 }
                                 Spacer()
                                 VStack{
+                                    Spacer()
                                     //Button to add new Calendar event
                                     Button {
                                         calendPrez = true
                                     } label: {
                                         Image(systemName: "bell")
                                     }
+                                    .padding(.trailing, 10)
+                                    .padding(.bottom, 10)
+                                    
                                 }
                                 .padding(.leading, 20)
                             }
