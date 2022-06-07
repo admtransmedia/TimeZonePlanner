@@ -59,7 +59,7 @@ struct PlannerView: View {
                                     .padding(.bottom, 10)
                                 }
                                 .padding(.leading, 5)
-                                .frame(width:135, alignment: .topLeading)
+                                .frame(width:120, alignment: .topLeading)
                                 //Date ant time pickers
                                 VStack (alignment: .leading, spacing: 30){
                                     DatePicker("", selection: $model.date, displayedComponents: .hourAndMinute).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
