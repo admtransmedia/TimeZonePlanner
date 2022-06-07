@@ -34,10 +34,10 @@ struct PlannerView: View {
                                 VStack (alignment: .leading){
                                     //City name
                                     Text("\(planner.planners[plannerIndex].cities[index].cityName.components(separatedBy: "/").last!.replacingOccurrences(of: "_", with: " "))")
-                                        .font(.system(size: 25))
-                                        .bold()
-                                        .lineLimit(2)
                                         .padding(.top, 10)
+                                        .font(.system(size: 30).bold())
+                                        .scaledToFit()
+                                        .minimumScaleFactor(0.6)
                                     Spacer()
                                     HStack {
                                         //Check if there is worktime
