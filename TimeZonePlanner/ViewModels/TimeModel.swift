@@ -23,8 +23,8 @@ class TimeModel:ObservableObject {
     @Published var searchText = ""
     @Published var filteredZones:[Zone] = [Zone]()
     
-    @Published var startWork = Date(timeIntervalSinceReferenceDate: 0)
-    @Published var finishWork = Date(timeIntervalSinceReferenceDate: 36000)
+    @Published var startWork = Date()
+    @Published var finishWork = Date()
     @Published var userZonez:[Zone] = [Zone]()
     
     
@@ -32,6 +32,7 @@ class TimeModel:ObservableObject {
     init () {
         getZonesList()
         userDefinedZones()
+        readWorktime()
     }
     func getZonesList () {
         
@@ -143,5 +144,21 @@ class TimeModel:ObservableObject {
     }
     
    
+    //Save worktime
+     func saveWorktime() {
+           UserDefaults.standard.set(startWork, forKey: "startWork")
+           UserDefaults.standard.set(finishWork, forKey: "finishWork")
+    }
+    //Read worktime
+     func readWorktime() {
+         if UserDefaults.standard.object(forKey: "startWork") != nil && UserDefaults.standard.object(forKey: "finishWork") != nil {
+             startWork = UserDefaults.standard.object(forKey: "startWork") as! Date
+             finishWork = UserDefaults.standard.object(forKey: "finishWork") as! Date
+         } else {
+             startWork = Date(timeIntervalSinceReferenceDate: 0)
+             finishWork = Date(timeIntervalSinceReferenceDate: 36000)
+         }
+
+    }
     
 }

@@ -18,6 +18,7 @@ struct SettingsView: View {
                 .padding()
             
             Button {
+                model.saveWorktime()
                 model.settingsViewIsPresented = false
             } label: {
                 Text("Back")

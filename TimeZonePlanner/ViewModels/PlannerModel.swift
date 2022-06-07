@@ -12,6 +12,8 @@ class PlannerModel:ObservableObject {
     @Published var planners:[Planner] = [Planner]()
     //TEST variable for updating views
     @Published var updateView = 0
+    
+    
  
     init() {
        readPlanners()
@@ -45,6 +47,8 @@ class PlannerModel:ObservableObject {
            
        }
 
+       
+       
     }
     //Read planners from userdefaults
     func readPlanners() {
@@ -63,6 +67,8 @@ class PlannerModel:ObservableObject {
             
             planners.append(storedPlanner)
         }
+        
+   
     }
     
     func deleteCity (plannerIndex: Int, index:Int) {
