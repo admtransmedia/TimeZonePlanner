@@ -25,6 +25,7 @@ struct PlannerView: View {
                     //Loop through all cities
                     ForEach (0..<planner.planners[plannerIndex].cities.count, id:\.self) {
                         index in
+                        GeometryReader { geo in
                         ZStack (alignment: .leading) {
                             Rectangle()
                                 .cornerRadius(10)
@@ -59,7 +60,7 @@ struct PlannerView: View {
                                     .padding(.bottom, 10)
                                 }
                                 .padding(.leading, 5)
-                                .frame(width:120, alignment: .topLeading)
+                                .frame(width: geo.size.width*0.4, alignment: .topLeading)
                                 //Date ant time pickers
                                 VStack (alignment: .leading, spacing: 30){
                                     DatePicker("", selection: $model.date, displayedComponents: .hourAndMinute).environment(\.timeZone, TimeZone(identifier: planner.planners[plannerIndex].cities[index].cityId)!)
@@ -69,6 +70,7 @@ struct PlannerView: View {
                                         .transformEffect(.init(scaleX: 1.1, y: 1.1))
                                         .fixedSize().frame(maxWidth: .infinity, alignment: .center)
                                 }
+                                .frame(width: geo.size.width*0.4)
                                 Spacer()
                                 VStack{
                                     Spacer()
@@ -80,9 +82,9 @@ struct PlannerView: View {
                                     }
                                     .padding(.trailing, 10)
                                     .padding(.bottom, 10)
-                                    
                                 }
                                 .padding(.leading, 20)
+                                .frame(width: geo.size.width*0.1)
                             }
                             .padding(.horizontal, 5)
                             //Background image with condition which image we should show, depends of worktime
@@ -98,16 +100,16 @@ struct PlannerView: View {
                                     .opacity(0.9)
                                     .cornerRadius(10)
                                     .shadow(radius: 5)
-                                    .frame(height: 110)
                                     .grayscale(0)) : (Image("background")
                                         .resizable()
                                         .opacity(0.9)
                                         .cornerRadius(10)
                                         .shadow(radius: 5)
-                                        .frame(height: 110)
                                         .grayscale(1))
                             )
                         }
+                    }
+                        .frame(height:110)
                         .padding(.bottom, 5)
                         //Swipe actiont to delete planner
                         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
@@ -164,6 +166,7 @@ struct PlannerView: View {
                         }
                         //Button to add new city and open Picker view
                         Button {
+                            model.searchText = ""
                             model.filteredZones = model.zones
                             model.newCityView = true
                         } label: {
